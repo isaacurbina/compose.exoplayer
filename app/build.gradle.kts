@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.hilt)
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -66,4 +70,14 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Exoplayer
+    implementation(libs.media3.ui)
+    implementation(libs.media3.exoplayer)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 }
